@@ -118,14 +118,14 @@ def main():
             scores = np.vstack(outputs)
             pred_score = np.max(scores, axis=1)
             pred_label = np.argmax(scores, axis=1)
-            if 'CLASSES' in checkpoint['meta']:
-                CLASSES = checkpoint['meta']['CLASSES']
-            else:
-                from mmcls.datasets import ImageNet
-                warnings.simplefilter('once')
-                warnings.warn('Class names are not saved in the checkpoint\'s '
-                              'meta data, use imagenet by default.')
-                CLASSES = ImageNet.CLASSES
+            # if 'CLASSES' in checkpoint['meta']:
+            #     CLASSES = checkpoint['meta']['CLASSES']
+            # else:
+            from mmcls.datasets import ImageNet
+            warnings.simplefilter('once')
+            warnings.warn('Class names are not saved in the checkpoint\'s '
+                          'meta data, use imagenet by default.')
+            CLASSES = ImageNet.CLASSES
             pred_class = [CLASSES[lb] for lb in pred_label]
             results = {
                 'pred_score': pred_score,

@@ -1,14 +1,14 @@
 # Getting Started
 
-This page provides basic tutorials about the usage of MMClassification.
+This page provides basic tutorials about the usage of weightnet.pytorch.
 
 ## Prepare datasets
 
-It is recommended to symlink the dataset root to `$MMCLASSIFICATION/data`.
+It is recommended to symlink the dataset root to `data`.
 If your folder structure is different, you may need to change the corresponding paths in config files.
 
 ```
-mmclassification
+weightnet.pytorch
 ├── mmcls
 ├── tools
 ├── configs
@@ -113,7 +113,7 @@ python tools/test.py configs/imagenet/resnet50_b32x8.py \
 
 ## Train a model
 
-MMClassification implements distributed training and non-distributed training,
+mmcls implements distributed training and non-distributed training,
 which uses `MMDistributedDataParallel` and `MMDataParallel` respectively.
 
 All outputs (log files and checkpoints) will be saved to the working directory,
@@ -151,7 +151,7 @@ Difference between `resume-from` and `load-from`:
 
 ### Train with multiple machines
 
-If you run MMClassification on a cluster managed with [slurm](https://slurm.schedmd.com/), you can use the script `slurm_train.sh`. (This script also supports single machine training.)
+If you run mmcls on a cluster managed with [slurm](https://slurm.schedmd.com/), you can use the script `slurm_train.sh`. (This script also supports single machine training.)
 
 ```shell
 [GPUS=${GPUS}] ./tools/slurm_train.sh ${PARTITION} ${JOB_NAME} ${CONFIG_FILE} ${WORK_DIR}
